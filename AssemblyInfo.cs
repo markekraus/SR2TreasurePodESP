@@ -6,7 +6,7 @@ using MelonLoader;
 
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: MelonAuthorColor(255, 255, 0, 188)]
-[assembly: MelonColor(255, 187, 255, 255)]
+[assembly: MelonColor(255, 0, 255, 0)]
 [assembly: MelonInfo(typeof(Entry), "Treasure Pod ESP", "1.0.0", "MarkEKraus", null)]
 [assembly: MelonGame("MonomiPark", "SlimeRancher2")]
 [assembly: AssemblyTitle("TreasurePodESP")]

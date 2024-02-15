@@ -1,4 +1,3 @@
-using System.Reflection;
 using HarmonyLib;
 using Il2Cpp;
 using UnityEngine;
@@ -10,12 +9,13 @@ namespace TreasurePodESP
     {
         public static void Postfix(TreasurePod __instance)
         {
-            var pod = __instance.gameObject.transform.Find(materialPath).gameObject.GetComponent<SkinnedMeshRenderer>();
-            pod.material.shader = _shader;
-            // foreach (var prop in _colorProperties)
-            // {
-            //     pod.material.SetColor(prop, Color.green);
-            // }
+            var pod = __instance.gameObject;
+            var esp = GameObject.Instantiate(_espPrefab, pod.transform.position + Vector3.down, Quaternion.identity);
+            var material = esp.GetComponent<MeshRenderer>().material;
+            foreach (var prop in _colorProperties)
+            {
+                material.SetColor(prop, GetColor());
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using MelonLoader.Preferences;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Il2CppInterop.Runtime.Injection;
 
 namespace TreasurePodESP
 {
@@ -56,6 +57,7 @@ namespace TreasurePodESP
             _espPrefab = _bundle.LoadAsset(espObjectName).Cast<GameObject>();
             GameObject.DontDestroyOnLoad(_espPrefab);
             _espPrefab.hideFlags |= HideFlags.HideAndDontSave;
+            ClassInjector.RegisterTypeInIl2Cpp<TreasurePodESPNode>();
         }
 
         protected static Color GetColor() => _colors[_color.Value.ToLowerInvariant()];
